@@ -3,8 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>LifeSpot</title>
+    <link href="../Static/CSS/index.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-    <p>Приветствуем на LifeSpot!</p>
+    <header>
+        <h1>LifeSpot — прямые трансляции с улиц</h1>
+        <p>Покажем, что происходит прямо сейчас</p>
+    </header>
+    <!--Сайд-бар страницы-->
+    <aside id="sidebar">
+        <div class="navbar">
+            <a href="/"><p>Все трансляции</p></a>
+            <a href="/"><p>О проекте</p></a>
+        </div>
+    </aside>
+    <div class="bordered">
+        <div class="search">
+            <input placeholder="Search on site" type="text" class="searchfield" />
+        </div>
+        <!--<a href="https://www.youtube.com/watch?v=srlpC5tmhYs&ab_channel=BryantParkNYC"><button>Санкт-Петербург</button></a>
+        <a href="https://www.youtube.com/watch?v=srlpC5tmhYs&ab_channel=BryantParkNYC"><button>Нью-Йорк</button></a>
+        <a href="https://www.youtube.com/watch?v=JplMzss6_YE&ab_channel=WokiliWanders"><button>Лондон</button></a>-->
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/srlpC5tmhYs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Нью-Йорк</iframe>
+            <p><b>Нью-Йорк</b></p>
+        </div>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/wCcMcaiRbhM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Санкт-Петербург</iframe>
+            <p><b>Санкт-Петербург</b></p>
+        </div>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/JplMzss6_YE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Лондон</iframe>
+            <p><b>Лондон</b></p>
+        </div>
+    </div>
+    <footer>
+        <p>Lifespot - видеотрансляции</p>
+        <p>Связь с разработчикм: <a href="mailto:test@test.test">test@test.test</a></p>
+    </footer>
 </body>
 </html>
