@@ -4,7 +4,18 @@
     <meta charset="UTF-8">
     <title>LifeSpot</title>
     <link href="../Static/CSS/index.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" defer src="../Static/JS/index.js"></script>
 </head>
+<!--<script>
+    let age = prompt("How old are you?");
+    if (age < 18) {
+        alert("Only over 18 years of age can use this site. You will redirect to google.com.");
+        window.location.href = "http://www.google.com";
+    }
+    else {
+        alert("Welcome to LifeSpot")
+    }
+</script>-->
 <body>
     <header>
         <h1>LifeSpot — прямые трансляции с улиц</h1>
@@ -19,22 +30,39 @@
     </aside>
     <div class="bordered">
         <div class="search">
-            <input placeholder="Search on site" type="text" class="searchfield" />
+            <input placeholder="Search on site" type="text" class="searchfield" oninput="
+
+    let inputString = document.getElementsByTagName('input')[0].value.toLowerCase();
+// Находим контейнеры с видео, которые необходимо фильтровать
+let elements = document.getElementsByClassName('video-container');
+ 
+// Пробегаемся по контейнерам
+for (let i = 0; i <= elements.length; i++ ){
+   // Вытаскиваем текст описания видео, которое необходимо отфильтровать
+   let videoText = elements[i].querySelector(".video-title").innerText;
+
+   // Выполняем фильтрацию, сравнивая значения в нижнем регистре
+   if(!videoText.toLowerCase().includes(inputString.toLowerCase())){
+       // Описание
+       elements[i].style.display = 'none';
+   } else {
+       elements[i].style.display = 'inline-block';
+   }
+}
+    
+            " />
         </div>
-        <!--<a href="https://www.youtube.com/watch?v=srlpC5tmhYs&ab_channel=BryantParkNYC"><button>Санкт-Петербург</button></a>
-        <a href="https://www.youtube.com/watch?v=srlpC5tmhYs&ab_channel=BryantParkNYC"><button>Нью-Йорк</button></a>
-        <a href="https://www.youtube.com/watch?v=JplMzss6_YE&ab_channel=WokiliWanders"><button>Лондон</button></a>-->
         <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/srlpC5tmhYs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Нью-Йорк</iframe>
-            <p><b>Нью-Йорк</b></p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/srlpC5tmhYs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h3>Нью-Йорк</h3>
         </div>
         <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/wCcMcaiRbhM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Санкт-Петербург</iframe>
-            <p><b>Санкт-Петербург</b></p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/srlpC5tmhY1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h3>Нью-Йорк</h3>
         </div>
         <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/JplMzss6_YE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Лондон</iframe>
-            <p><b>Лондон</b></p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/JplMzss6_YE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h3>Лондон</h3>
         </div>
     </div>
     <footer>
