@@ -1,0 +1,13 @@
+﻿.reviews, .review-button {
+    display: inline-block;
+    margin-top: 0.5em;
+    padding-left: 1%;
+    padding-top: 1%;
+}
+
+.comment-text {
+    display: block;
+    margin-top: 0.5em;
+    padding-left: 1%;
+    padding-top: 1%;
+}

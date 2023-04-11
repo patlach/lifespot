@@ -1,18 +1,43 @@
-﻿let map = new Map();
+﻿let session = new Map();
+let startDate = new Date().toLocaleString();
 
-map.set('UserData', window.navigator.userAgent);
-map.set('DateTime', new Date());
-map.set('Age', prompt('Enter your age'));
+function getAge() {
 
-if (map.get('Age') < 18) {
-    alert("Only over 18 years of age can use this site. You will redirect to google.com.");
-    window.location.href = "http://www.google.com";
+    session.set("age", prompt("Пожалуйста, введите ваш возраст?"));
+
+    if (session.get("age") >= 18) {
+
+        alert("Приветствуем на LifeSpot! " + '\n' + "Текущее время: " + startDate);
+    }
+    else {
+        alert("Наши трансляции не предназначены для лиц моложе 18 лет. Вы будете перенаправлены");
+        window.location.href = "http://www.google.com";
+    }
 }
-else {
-    alert('Welcome to LifeSpot');
-    map.set('DateTime', new Date());
+
+function handleSession() {
+
+    session.set("userAgent", window.navigator.userAgent);
+    session.set("startDate", startDate);
+
+    return session;
 }
 
-for (let element of map) {
-    console.log(element);
+let sessionLog = function logSession() {
+    for (let result of session) {
+        console.log(result);
+    }
+}
+
+function searchResult() {
+let elements = document.getElementsByClassName('video-container');
+
+for (let i = 0; i <= elements.length; i++) {
+    let videoText = elements[i].querySelector('h3').innerText;
+    if (!videoText.toLowerCase().includes(search().toLowerCase())) {
+            elements[i].style.display = 'none';
+        } else {
+            elements[i].style.display = 'inline-block';
+        }
+    }
 }
