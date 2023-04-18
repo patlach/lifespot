@@ -1,13 +1,30 @@
-﻿let session = new Map();
-let startDate = new Date().toLocaleString();
+﻿
+function handleSession(sessionLog, checkAge) {
 
-function getAge() {
+    if (window.sessionStorage.getItem("startDate") == null) {
+        window.sessionStorage.setItem("startDate", new Date().toLocaleString());
+    }
 
-    session.set("age", prompt("Пожалуйста, введите ваш возраст?"));
+    if (window.sessionStorage.getItem("userAgent") == null) {
+        window.sessionStorage.setItem("userAgent", window.navigator.userAgent);
+    }
 
-    if (session.get("age") >= 18) {
+    if (window.sessionStorage.getItem("age") == null) {
+        window.sessionStorage.setItem("age", prompt("Пожалуйста, введите ваш возраст?"));
+        checkAge(true);
+    }
+    else {
+        checkAge(false);
+    }
 
-        alert("Приветствуем на LifeSpot! " + '\n' + "Текущее время: " + startDate);
+    sessionLog();
+}
+
+const checkAge = function (visit) {
+    if (window.sessionStorage.getItem("age") >= 18) {
+        if (visit) {
+            alert("Приветствуем на LifeSpot! " + '\n' + "Текущее время: " + new Date().toLocaleString());
+        } 
     }
     else {
         alert("Наши трансляции не предназначены для лиц моложе 18 лет. Вы будете перенаправлены");
@@ -15,18 +32,10 @@ function getAge() {
     }
 }
 
-function handleSession() {
-
-    session.set("userAgent", window.navigator.userAgent);
-    session.set("startDate", startDate);
-
-    return session;
-}
-
 let sessionLog = function logSession() {
-    for (let result of session) {
-        console.log(result);
-    }
+    console.log(window.sessionStorage.age);
+    console.log(window.sessionStorage.userAgent);
+    console.log(window.sessionStorage.startDate);
 }
 
 function searchResult() {
