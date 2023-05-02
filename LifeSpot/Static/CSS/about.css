@@ -11,3 +11,72 @@
     padding-left: 1%;
     padding-top: 1%;
 }
+
+.slider {
+    display: inline-block;
+    margin-top: 0.5em;
+    padding-left: 1%;
+    padding-top: 1%;
+    margin: auto;
+    position: relative;
+}
+
+.slide {
+    
+}
+
+.slider button {
+    position: absolute;
+    top: 40%;
+    z-index: 3;
+    background-color: transparent;
+    border: none;
+    font-size: 3em;
+    color: white;
+    cursor: pointer;
+}
+
+.left-button,
+.right-button {
+    cursor: pointer;
+    position: absolute;
+    width: auto;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 0 3px 3px 0;
+}
+
+img {
+    width: 100%;
+}
+
+.left-button {
+    left: 5%;
+}
+
+.right-button {
+    right: 5%;
+}
+
+.left-button:hover,
+.right-button:hover {
+    background-color: rgb(0, 0, 0, 8)
+} 
+
+.slider .slide {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+
+    from {
+        opacity: 0.4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
